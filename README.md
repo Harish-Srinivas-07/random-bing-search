@@ -26,3 +26,7 @@ Contributions to the project are welcome! If you find any issues or have suggest
 ## Disclaimer
 
 This project is created for educational and entertainment purposes only. The developer is not responsible for any misuse or unintended consequences of using this application. Use it responsibly and at your own risk.
+
+
+##Imp
+allow site from popup block to perform multi tab opens
