@@ -1,4 +1,4 @@
-# 🌟 Fun Random Search with Unique Numbers 🌟
+# 🌟 Fun Random Search with Random Numbers 🌟
 
 ## Welcome to the Exciting Search Adventure! 🔍🔢
 
@@ -6,7 +6,7 @@
 
 ## Ready to Begin? 🗺️
 
-👉 [**Demo:**](https://fakebingsearch.netlify.app/)
+👉 [**Demo**](https://fakebingsearch.netlify.app/)
 
 ## How to Get Started 📝
 
@@ -36,7 +36,7 @@ Hey there! Listen up: since Bing rewards smart users like you for each unique se
 
 ## Ahoy, Matey! Join the Fun 🤝
 
-All aboard! 🌊 We welcome everyone to join this exciting journey. If you have ideas to make our app even better, let us know! You can send us a message - oops, we mean, give us your thoughts! Our team can't wait to hear from you. 🌟
+All aboard! 🌊 We welcome everyone to join this exciting journey. If you have ideas to make our web even better, let us know! You can send us a message - oops, we mean, give us your thoughts! wait to hear from you. 🌟
 
 ## Screenshot :
 <img width="1080" alt="image" src="https://github.com/Harish-Srinivas-07/random-bing-search/assets/114596900/377b3c9f-c7db-44ba-8d1b-c0089b9ed6bb">
@@ -44,4 +44,4 @@ All aboard! 🌊 We welcome everyone to join this exciting journey. If you have 
 
 ## Disclaimer ⚠️
 
-Just a small note! This app is for fun and learning purposes only. The developer takes no responsibility for any issues while using the app. Enjoy the adventure! 😉
+Just a small note! This prj is for fun and learning purposes only. The developer takes no responsibility for any issues while using the app. Enjoy the adventure! 😉
