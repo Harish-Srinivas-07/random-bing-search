@@ -38,6 +38,10 @@ Hey there! Listen up: since Bing rewards smart users like you for each unique se
 
 All aboard! 🌊 We welcome everyone to join this exciting journey. If you have ideas to make our app even better, let us know! You can send us a message - oops, we mean, give us your thoughts! Our team can't wait to hear from you. 🌟
 
+## Screenshot :
+<img width="1080" alt="image" src="https://github.com/Harish-Srinivas-07/random-bing-search/assets/114596900/377b3c9f-c7db-44ba-8d1b-c0089b9ed6bb">
+
+
 ## Disclaimer ⚠️
 
 Just a small note! This app is for fun and learning purposes only. The developer takes no responsibility for any issues while using the app. Enjoy the adventure! 😉
