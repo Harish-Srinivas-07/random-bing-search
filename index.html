@@ -39,6 +39,11 @@
             transition: background-color 0.3s ease;
         }
 
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
         button:hover {
             background-color: #0056b3;
         }
@@ -64,15 +69,14 @@
 <body>
     <div class="container">
         <h1>Unique Search</h1>
-        <input type="number" id="numSearches" min="1" max="100" value="10" placeholder="Number of Random Searches">
-        <br>
-        <button onclick="performRandomSearches()">Random Searches</button>
         <p>Click the button to perform random searches in new Edge windows.</p>
-    </div>
+        <input type="number" id="numSearches" min="1" max="100" value="33" placeholder="Number of Random Searches">
+        <br>
 
-    <script>
-        var searchWords = [
-  "journey", "sparkle", "marathon", "vibrant", "compass",
+        <button id="searchButton" onclick="performRandomSearches()">Random Searches</button>
+
+        <script>
+            var searchWords = ["journey", "sparkle", "marathon", "vibrant", "compass",
   "paradise", "harmony", "graceful", "blossom", "vibrant",
   "whisper", "splendid", "cherish", "tranquility", "laughter",
   "melody", "cherish", "infinity", "majestic", "radiant",
@@ -102,28 +106,72 @@
   "jubilant", "radiant", "blossom", "tranquil", "cherished",
   "enchant", "harmony", "radiant", "serene", "enchant",
   "majestic", "harmony", "cherish", "tranquil", "jubilant",
-  "whisper", "blossom", "radiant", "enchant", "tranquil"
+  "whisper", "blossom", "radiant", "enchant", "tranquil",
+  "aberration", "benevolent", "cacophony", "deft", "ephemeral",
+  "facetious", "gregarious", "hallowed", "iconoclast", "juxtapose",
+  "kaleidoscope", "languid", "mellifluous", "nadir", "obfuscate",
+  "paragon", "quixotic", "recalcitrant", "serendipity", "taciturn",
+  "ubiquitous", "vex", "wanderlust", "xenophobia", "yield",
+  "zealot", "alacrity", "belligerent", "cogent", "dilapidated",
+  "effervescent", "frangible", "garrulous", "histrionic", "impervious",
+  "jocund", "kowtow", "luminous", "misanthrope", "nefarious",
+  "obstreperous", "panacea", "querulous", "rhapsody", "salient",
+  "tenebrous", "ubiquity", "vacillate", "wane", "xeric",
+  "yonder", "zealous", "abscond", "beneath", "capitulate",
+  "debilitate", "elucidate", "fathom", "garrulity", "haphazard",
+  "impetuous", "juxtaposition", "kaleidoscopic", "labyrinth", "magnanimous",
+  "nebulous", "oblivion", "palatable", "quandary", "reciprocal",
+  "sacrosanct", "trepidation", "ubiquitousness", "vacuous", "wanton",
+  "xenial", "yesterday", "zeal", "abhor", "bellicose",
+  "cacophonous", "debunk", "eloquent", "facet", "gallivant",
+  "hallowedness", "immutable", "jovial", "kudos", "lament",
+  "malleable", "narcissistic", "obfuscation", "palpable", "quintessential",
+  "rampant", "sagacious", "tempestuous", "ubiquitously", "variegated",
+  "wistful", "xenodochial", "yearn", "zenith","Eldoria", "Aurelia", "Thornwind", "Nymira", "Zephyrus", "Aeliana", "Drakonheart", "Faelon", "Lorelei", "Silvania", "Duskshadow", "Mythralis", "Artemis", "Caladrius", "Oberon", "Elowen", "Astridora", "Valerius", "Sylvaris", "Aerendyl", "Seraphina", "Mysthaven", "Elysium", "Thalindra", "Caelum", "Elandria", "Solstice", "Lyria", "Shadowfang", "Elaria", "Aurorion", "Thalassin", "Vellichor", "Veridia", "Ethereal", "Lorien", "Aurelian", "Duskblade", "Serenwyn", "Aelarion", "Faeloria", "Eirian", "Thundertide", "Lunaria", "Caelith", "Nyxara", "Stellara", "Zephyrion",
 ];
+            var currentIndex = 0; // Track the current search index
+            var searchTab; // Reference to the new tab
+            var completedSearches = 0;
+            var searchButton = document.getElementById("searchButton");
 
-        function performRandomSearches() {
-            var numSearchesInput = document.getElementById("numSearches");
-            var numSearches = parseInt(numSearchesInput.value);
+            function performRandomSearches() {
+                var numSearchesInput = document.getElementById("numSearches");
+                var numSearches = parseInt(numSearchesInput.value);
 
-            if (isNaN(numSearches) || numSearches <= 0 || numSearches > 100) {
-                alert("Please enter a valid number between 1 and 100.");
-                return;
+                if (isNaN(numSearches) || numSearches <= 0 || numSearches > 100) {
+                    alert("Please enter a valid number between 1 and 100.");
+                    return;
+                }
+
+                // Disable the button
+                searchButton.disabled = true;
+
+                function openNextSearch() {
+                    if (currentIndex < numSearches) {
+                        var randomIndex = Math.floor(Math.random() * searchWords.length);
+                        var randomWord = searchWords[randomIndex];
+                        var searchIndex = Math.floor(Math.random() * 1000);
+                        var searchQuery = "https://www.bing.com/search?q=" + encodeURIComponent(randomWord) + "-" + searchIndex;
+
+                        if (!searchTab) {
+                            searchTab = window.open(searchQuery, "_blank");
+                        } else {
+                            searchTab.location.href = searchQuery;
+                        }
+                        currentIndex++;
+                        completedSearches++;
+                        searchButton.innerHTML = "Completed Searches: " + completedSearches;
+                        setTimeout(openNextSearch, 1000); // Delay opening the next search query
+                    } else {
+                        // Re-enable the button once all searches are completed
+                        searchButton.disabled = false;
+                        searchButton.innerHTML = "Random Searches";
+                    }
+                }
+
+                openNextSearch(); // Start the process
             }
-
-            for (var i = 0; i < numSearches; i++) {
-                var randomIndex = Math.floor(Math.random() * searchWords.length);
-                var randomWord = searchWords[randomIndex];
-                var searchIndex = Math.floor(Math.random() * 1000); // Generate a random index number
-                var searchQuery = "https://www.bing.com/search?pglt=161&q=" + encodeURIComponent(randomWord) + "-" + searchIndex + "&cvid=7c82759711614229a1b7125814f202f4&aqs=edge..69i57j0l7j69i60.945j0j1&FORM=ANAB01&PC=NMTS";
-                setTimeout(function (query) {
-                    window.open(query, "_blank");
-                }, 1000 * i, searchQuery); // Delay opening each search query
-            }
-        }
-    </script>
+        </script>
+    </div>
 </body>
 </html>
