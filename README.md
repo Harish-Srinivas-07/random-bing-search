@@ -6,7 +6,8 @@
 
 ## Ready to Begin? 🗺️
 
-👉 [**Demo**](https://fakebingsearch.netlify.app/)
+👉 [**Individual Tab Old Code Demo**](https://fakebingsearch.netlify.app/)
+👉 [**Updated Demo**](https://fakebingsearches.netlify.app/)
 
 ## How to Get Started 📝
 
